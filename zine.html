@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zine - Poker Night</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="zine-page">
+    <header class="zine-header">
+        <a href="newsstand.html" class="back-btn">
+            <span class="back-arrow">←</span>
+            <span>Back to Newsstand</span>
+        </a>
+    </header>
+
+    <main class="zine-main">
+        <article id="zine-content" class="zine-content">
+            <!-- Zine content will be rendered here by JavaScript -->
+        </article>
+
+        <div class="zine-not-found" id="zine-not-found" style="display: none;">
+            <div class="not-found-icon">🃏</div>
+            <h2>Zine Not Found!</h2>
+            <p>This issue seems to have folded...</p>
+            <a href="newsstand.html" class="return-link">Return to Newsstand</a>
+        </div>
+    </main>
+
+    <footer class="zine-footer">
+        <div class="footer-suits">
+            <span>♠</span>
+            <span>♥</span>
+            <span>♣</span>
+            <span>♦</span>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

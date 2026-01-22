@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Night Newsstand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="card-suits">
+                <span class="suit spade">♠</span>
+                <span class="suit heart">♥</span>
+                <span class="suit club">♣</span>
+                <span class="suit diamond">♦</span>
+            </div>
+            <h1 class="login-title">Poker Night</h1>
+            <h2 class="login-subtitle">Newsstand</h2>
+            <p class="login-tagline">Weekly Zines from the Table</p>
+
+            <form id="login-form" class="login-form">
+                <div class="input-group">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter the secret password..."
+                        autocomplete="off"
+                        required
+                    >
+                    <div class="chip-decoration"></div>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Deal Me In!</span>
+                </button>
+                <p id="error-message" class="error-message"></p>
+            </form>
+
+            <div class="doodle-border">
+                <div class="cards-doodle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

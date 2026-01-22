@@ -1,0 +1,1001 @@
+/* ============================================
+   Poker Night Newsstand - Styles
+   Playful, cartoon, hand-drawn aesthetic
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --coral: #FF6B6B;
+    --turquoise: #4ECDC4;
+    --sunny-yellow: #FFE66D;
+    --lavender: #C9B1FF;
+    --cream: #FFF9E6;
+    --wood-dark: #8B4513;
+    --wood-light: #DEB887;
+    --text-dark: #2D3436;
+    --text-light: #636E72;
+    --white: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.15);
+
+    --font-display: 'Baloo 2', cursive;
+    --font-body: 'Fredoka', sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
+
+.login-page {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--lavender) 50%, var(--turquoise) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 40px 30px;
+    box-shadow:
+        0 20px 60px var(--shadow),
+        0 0 0 6px var(--sunny-yellow),
+        0 0 0 12px var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 230, 109, 0.1) 10px,
+        rgba(255, 230, 109, 0.1) 20px
+    );
+    pointer-events: none;
+}
+
+.card-suits {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.suit {
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.suit.spade, .suit.club { color: var(--text-dark); }
+.suit.heart, .suit.diamond { color: var(--coral); }
+
+.suit:nth-child(1) { animation-delay: 0s; }
+.suit:nth-child(2) { animation-delay: 0.2s; }
+.suit:nth-child(3) { animation-delay: 0.4s; }
+.suit:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.login-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0;
+    position: relative;
+}
+
+.login-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--coral);
+    margin-bottom: 10px;
+}
+
+.login-tagline {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    position: relative;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 3px solid var(--lavender);
+    border-radius: var(--radius-lg);
+    background: var(--cream);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--turquoise);
+    box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.2);
+}
+
+.input-group input::placeholder {
+    color: var(--text-light);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px 30px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--coral) 0%, #FF8E8E 100%);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: var(--coral);
+    font-size: 0.9rem;
+    margin-top: 15px;
+    min-height: 24px;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* ============================================
+   NEWSSTAND PAGE
+   ============================================ */
+
+.newsstand-page {
+    background: linear-gradient(180deg, var(--cream) 0%, #FFE4B5 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.newsstand-header {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--lavender) 100%);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.suit-icon {
+    font-size: 1.5rem;
+    color: var(--sunny-yellow);
+}
+
+.tagline {
+    color: var(--white);
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--white);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: var(--white);
+    color: var(--coral);
+}
+
+.newsstand-main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.shelf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.shelf {
+    position: relative;
+    padding: 30px 20px 60px;
+}
+
+.shelf-label {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--wood-dark);
+    margin-bottom: 25px;
+    padding-left: 10px;
+    border-left: 4px solid var(--coral);
+}
+
+.zine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.shelf-wood {
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    right: -20px;
+    height: 30px;
+    background: linear-gradient(180deg, var(--wood-light) 0%, var(--wood-dark) 100%);
+    border-radius: 4px;
+    box-shadow:
+        0 4px 10px var(--shadow),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.shelf-wood::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+/* Zine Cards */
+.zine-card {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transform-origin: bottom center;
+}
+
+.zine-card:hover {
+    transform: translateY(-10px) rotate(-2deg);
+}
+
+.zine-cover {
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow:
+        0 10px 30px var(--shadow),
+        -5px 5px 15px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--white);
+}
+
+.zine-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cover-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+.issue-badge {
+    align-self: flex-start;
+    background: var(--white);
+    color: var(--text-dark);
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.zine-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: auto 0 5px;
+}
+
+.zine-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.cover-suits {
+    display: flex;
+    gap: 8px;
+    font-size: 1.2rem;
+}
+
+.cover-suits span {
+    opacity: 0.8;
+}
+
+.cover-suits span:nth-child(odd) { color: var(--white); }
+.cover-suits span:nth-child(even) { color: var(--sunny-yellow); }
+
+.zine-info {
+    padding: 12px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zine-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.zine-winner {
+    font-size: 0.85rem;
+    color: var(--coral);
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.empty-state h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: var(--text-light);
+}
+
+/* Footer */
+.newsstand-footer {
+    background: var(--text-dark);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-suits {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.footer-suits span:nth-child(odd) { color: var(--white); }
+.footer-suits span:nth-child(even) { color: var(--coral); }
+
+.newsstand-footer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   ZINE PAGE
+   ============================================ */
+
+.zine-page {
+    background: var(--cream);
+    min-height: 100vh;
+}
+
+.zine-header {
+    background: var(--white);
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--cream);
+    color: var(--coral);
+}
+
+.back-arrow {
+    font-size: 1.2rem;
+}
+
+.zine-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.zine-content {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow);
+    margin-top: -20px;
+}
+
+/* Zine Title Section */
+.zine-title-section {
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.zine-title-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+.issue-number {
+    display: inline-block;
+    background: var(--white);
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.zine-main-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.zine-main-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.zine-date-display {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.title-suits {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.title-suits span {
+    opacity: 0.7;
+}
+
+.title-suits span:nth-child(odd) { color: var(--white); }
+.title-suits span:nth-child(even) { color: var(--sunny-yellow); }
+
+/* Sections */
+.stats-section,
+.leaderboard-section,
+.highlights-section,
+.comic-section {
+    padding: 30px;
+    border-bottom: 3px dashed var(--cream);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-icon {
+    font-size: 1.3rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card.winner-card {
+    background: linear-gradient(135deg, var(--sunny-yellow) 0%, #FFD93D 100%);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.stat-value.best-hand {
+    font-size: 1.1rem;
+}
+
+.stat-detail {
+    font-size: 1rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Leaderboard */
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease;
+}
+
+.player-row:hover {
+    transform: translateX(5px);
+}
+
+.player-row.first-place {
+    background: linear-gradient(135deg, var(--sunny-yellow) 0%, #FFD93D 100%);
+    box-shadow: 0 4px 15px rgba(255, 230, 109, 0.4);
+}
+
+.player-position {
+    font-size: 1.5rem;
+    width: 50px;
+}
+
+.player-name {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.player-chips {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.player-chips.positive {
+    color: #27AE60;
+}
+
+.player-chips.negative {
+    color: var(--coral);
+}
+
+/* Highlights */
+.highlights-list {
+    list-style: none;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cream);
+}
+
+.highlight-item:last-child {
+    border-bottom: none;
+}
+
+.highlight-bullet {
+    color: var(--coral);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Comic Section */
+.comic-container {
+    text-align: center;
+}
+
+.comic-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.comic-frame {
+    background: var(--white);
+    border: 4px solid var(--text-dark);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    box-shadow:
+        8px 8px 0 var(--text-dark),
+        inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.comic-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-sm);
+}
+
+.comic-placeholder {
+    padding: 60px 20px;
+    background: var(--cream);
+    border-radius: var(--radius-sm);
+}
+
+.comic-placeholder span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.comic-placeholder p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* End Decoration */
+.zine-end-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    font-size: 2rem;
+}
+
+.zine-end-decoration span:nth-child(odd) { color: var(--text-dark); }
+.zine-end-decoration span:nth-child(even) { color: var(--coral); }
+
+/* Not Found */
+.zine-not-found {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.not-found-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.zine-not-found h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.zine-not-found p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.return-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--coral);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.return-link:hover {
+    background: #FF8E8E;
+    transform: translateY(-2px);
+}
+
+/* Zine Footer */
+.zine-footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.zine-footer .footer-suits {
+    opacity: 0.5;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .login-title {
+        font-size: 2rem;
+    }
+
+    .login-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .logout-btn {
+        position: static;
+        margin-top: 15px;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .zine-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .zine-main-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-section,
+    .leaderboard-section,
+    .highlights-section,
+    .comic-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+    }
+
+    .login-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .suit {
+        font-size: 1.5rem;
+    }
+
+    .zine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zine-cover {
+        aspect-ratio: 4/5;
+    }
+
+    .player-row {
+        padding: 12px 15px;
+    }
+
+    .player-position {
+        width: 40px;
+        font-size: 1.2rem;
+    }
+
+    .zine-main-title {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS & EFFECTS
+   ============================================ */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.zine-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.zine-card:nth-child(1) { animation-delay: 0.1s; }
+.zine-card:nth-child(2) { animation-delay: 0.2s; }
+.zine-card:nth-child(3) { animation-delay: 0.3s; }
+.zine-card:nth-child(4) { animation-delay: 0.4s; }
+.zine-card:nth-child(5) { animation-delay: 0.5s; }
+.zine-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Hover glow effect */
+.zine-card:hover .zine-cover {
+    box-shadow:
+        0 15px 40px var(--shadow),
+        0 0 30px rgba(255, 107, 107, 0.3);
+}
