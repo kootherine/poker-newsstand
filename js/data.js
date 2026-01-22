@@ -102,7 +102,7 @@ function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
-// Helper function to get all zines sorted by date (newest first)
+// Helper function to get all zines sorted by issue number (oldest first)
 function getAllZines() {
-    return [...zines].sort((a, b) => new Date(b.date) - new Date(a.date));
+    return [...zines].sort((a, b) => a.issueNumber - b.issueNumber);
 }
